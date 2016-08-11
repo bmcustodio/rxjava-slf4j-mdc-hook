@@ -1,0 +1,15 @@
+plugins {
+    id 'com.jfrog.bintray' version '1.7.1'
+}
+
+repositories {
+    jcenter()
+}
+
+group = 'io.github.bmcstdio'
+version = '1.0.0'
+
+apply from: "$rootDir/gradle/wrapper.gradle"
+apply from: "$rootDir/gradle/java.gradle"
+apply from: "$rootDir/gradle/jacoco.gradle"
+apply from: "$rootDir/gradle/bintray.gradle"

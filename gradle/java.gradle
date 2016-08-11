@@ -1,0 +1,31 @@
+apply plugin: 'java'
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    compile 'io.reactivex:rxjava:1.1.8'
+
+    testCompile 'com.google.guava:guava:19.0'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.powermock:powermock-api-mockito2:1.6.5'
+    testCompile 'org.powermock:powermock-module-junit4:1.6.5'
+
+    testRuntime 'ch.qos.logback:logback-classic:1.1.7'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_6
+targetCompatibility = JavaVersion.VERSION_1_6
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}

@@ -1,0 +1,70 @@
+apply plugin: 'maven-publish'
+
+bintray {
+    key = System.getenv('BINTRAY_APIKEY')
+    pkg {
+        desc = 'An RxJava hook which enables SLF4J\'s MDC propagation.'
+        githubReleaseNotesFile = 'README.md'
+        githubRepo = 'brunomcustodio/rxjava-slf4j-mdc-hook'
+        issueTrackerUrl = 'https://github.com/brunomcustodio/rxjava-slf4j-mdc-hook/issues'
+        licenses = ['Apache-2.0']
+        name = 'rxjava-slf4j-mdc-hook'
+        repo = 'maven'
+        vcsUrl = 'https://github.com/brunomcustodio/rxjava-slf4j-mdc-hook.git'
+        version {
+            desc = project.version
+            gpg {
+                sign = true
+            }
+            name = project.version
+            released = new Date()
+        }
+        websiteUrl = 'https://github.com/brunomcustodio/rxjava-slf4j-mdc-hook'
+    }
+    publications = ['DefaultMavenPublication']
+    user = System.getenv('BINTRAY_USER')
+}
+
+publishing {
+    publications {
+        DefaultMavenPublication(MavenPublication) {
+            from components.java
+
+            artifact javadocJar {
+                classifier 'javadoc'
+            }
+
+            artifact sourcesJar {
+                classifier 'sources'
+            }
+
+            pom.withXml {
+                asNode().children().last() + {
+                    resolveStrategy = Closure.DELEGATE_FIRST
+                    name 'rxjava-slf4j-mdc-hook'
+                    description 'An RxJava hook which enables SLF4J\' MDC propagation.'
+                    url 'https://github.com/brunomcustodio/rxjava-slf4j-mdc-hook'
+                    scm {
+                        url 'https://github.com/brunomcustodio/rxjava-slf4j-mdc-hook.git'
+                        connection 'https://github.com/brunomcustodio/rxjava-slf4j-mdc-hook.git'
+                        developerConnection 'https://github.com/brunomcustodio/rxjava-slf4j-mdc-hook.git'
+                    }
+                    licenses {
+                        license {
+                            name 'The Apache Software License, Version 2.0'
+                            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                            distribution 'repo'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id 'brunomcustodio'
+                            name 'brunomcustodio'
+                            email 'brunomcustodio@gmail.com'
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

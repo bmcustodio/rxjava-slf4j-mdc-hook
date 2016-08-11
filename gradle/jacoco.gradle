@@ -1,0 +1,13 @@
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = '0.7.7.201606060606'
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+    }
+}
+
+check.dependsOn jacocoTestReport
