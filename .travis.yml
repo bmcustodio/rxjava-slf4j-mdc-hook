@@ -1,7 +1,6 @@
 language: java
 jdk:
   - oraclejdk8
-  - oraclejdk7
 sudo: false
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -12,3 +11,6 @@ cache:
     - $HOME/.gradle/wrapper/
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+env:
+  global:
+    - JAVA6_HOME=/usr/lib/jvm/java-6-openjdk-amd64

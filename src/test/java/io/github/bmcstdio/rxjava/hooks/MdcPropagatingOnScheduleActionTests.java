@@ -38,8 +38,6 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.slf4j.MDC;
 import rx.Observable;
-import rx.Observable.OnSubscribe;
-import rx.Subscriber;
 import rx.observers.TestSubscriber;
 import rx.plugins.RxJavaHooks;
 import rx.schedulers.Schedulers;
@@ -81,13 +79,10 @@ public final class MdcPropagatingOnScheduleActionTests {
     MDC.clear();
 
     final TestSubscriber<Object> subscriber = new TestSubscriber<Object>();
-    Observable.create(new OnSubscribe<Object>() {
-      @Override
-      public void call(final Subscriber<? super Object> subscriber) {
-        subscriber.onNext(MDC.get(KEY_1));
-        subscriber.onNext(MDC.get(KEY_2));
-        subscriber.onCompleted();
-      }
+    Observable.create(subscriber1 -> {
+      subscriber1.onNext(MDC.get(KEY_1));
+      subscriber1.onNext(MDC.get(KEY_2));
+      subscriber1.onCompleted();
     }).subscribeOn(Schedulers.computation()).subscribe(subscriber);
 
     subscriber.awaitTerminalEvent();
@@ -103,13 +98,10 @@ public final class MdcPropagatingOnScheduleActionTests {
     MDC.put(KEY_2, VAL_2);
 
     final TestSubscriber<Object> subscriber = new TestSubscriber<Object>();
-    Observable.create(new OnSubscribe<Object>() {
-      @Override
-      public void call(final Subscriber<? super Object> subscriber) {
-        subscriber.onNext(MDC.get(KEY_1));
-        subscriber.onNext(MDC.get(KEY_2));
-        subscriber.onCompleted();
-      }
+    Observable.create(subscriber1 -> {
+      subscriber1.onNext(MDC.get(KEY_1));
+      subscriber1.onNext(MDC.get(KEY_2));
+      subscriber1.onCompleted();
     }).subscribeOn(Schedulers.computation()).subscribe(subscriber);
 
     subscriber.awaitTerminalEvent();
@@ -127,13 +119,10 @@ public final class MdcPropagatingOnScheduleActionTests {
     MDC.put(KEY_2, VAL_2);
 
     final TestSubscriber<Object> subscriber = new TestSubscriber<Object>();
-    Observable.create(new OnSubscribe<Object>() {
-      @Override
-      public void call(final Subscriber<? super Object> subscriber) {
-        subscriber.onNext(MDC.get(KEY_1));
-        subscriber.onNext(MDC.get(KEY_2));
-        subscriber.onCompleted();
-      }
+    Observable.create(subscriber1 -> {
+      subscriber1.onNext(MDC.get(KEY_1));
+      subscriber1.onNext(MDC.get(KEY_2));
+      subscriber1.onCompleted();
     }).subscribeOn(Schedulers.computation()).subscribe(subscriber);
 
     subscriber.awaitTerminalEvent();

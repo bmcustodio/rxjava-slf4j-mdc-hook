@@ -4,6 +4,8 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.21'
     compile 'io.reactivex:rxjava:1.1.9'
 
+    retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:2.3.0'
+
     testCompile 'com.google.guava:guava:19.0'
     testCompile 'junit:junit:4.12'
     testCompile 'org.powermock:powermock-api-mockito2:1.6.5'
@@ -12,8 +14,8 @@ dependencies {
     testRuntime 'ch.qos.logback:logback-classic:1.1.7'
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_6
-targetCompatibility = JavaVersion.VERSION_1_6
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
