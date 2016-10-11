@@ -44,7 +44,7 @@ are deprecated since 1.1.7.
 **Gradle:**
 
 ```
-compile 'io.github.bmcstdio:rxjava-slf4j-mdc-hook:1.1.0'
+compile 'io.github.bmcstdio:rxjava-slf4j-mdc-hook:1.1.1'
 ```
 
 **Maven:**
@@ -53,7 +53,7 @@ compile 'io.github.bmcstdio:rxjava-slf4j-mdc-hook:1.1.0'
 <dependency>
   <groupId>io.github.bmcstdio</groupId>
   <artifactId>rxjava-slf4j-mdc-hook</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
 </dependency>
 ```
 

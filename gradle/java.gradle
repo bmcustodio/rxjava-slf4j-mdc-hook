@@ -2,7 +2,7 @@ apply plugin: 'java'
 
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.21'
-    compile 'io.reactivex:rxjava:1.1.9'
+    compile 'io.reactivex:rxjava:1.2.1'
 
     retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:2.3.0'
 
