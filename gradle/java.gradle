@@ -1,17 +1,17 @@
 apply plugin: 'java'
 
 dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.21'
-    compile 'io.reactivex:rxjava:1.2.1'
+    compile 'org.slf4j:slf4j-api:1.7.22'
+    compile 'io.reactivex:rxjava:1.2.6'
 
-    retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:2.3.0'
+    retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:2.5.0'
 
-    testCompile 'com.google.guava:guava:19.0'
+    testCompile 'com.google.guava:guava:20.0'
     testCompile 'junit:junit:4.12'
-    testCompile 'org.powermock:powermock-api-mockito2:1.6.5'
-    testCompile 'org.powermock:powermock-module-junit4:1.6.5'
+    testCompile 'org.powermock:powermock-api-mockito2:1.6.6'
+    testCompile 'org.powermock:powermock-module-junit4:1.6.6'
 
-    testRuntime 'ch.qos.logback:logback-classic:1.1.7'
+    testRuntime 'ch.qos.logback:logback-classic:1.1.10'
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
