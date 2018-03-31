@@ -1,8 +1,10 @@
 # Gradle
 build
+out
 .gradle
 
 # IntelliJ IDEA
 .idea
 *.ipr
 *.iws
+*.iml

@@ -13,6 +13,12 @@ propagation.
 
 ## Usage
 
+If you're using RxJava 2:
+
+```java
+RxJavaPlugins.setScheduleHandler(new MdcPropagatingOnScheduleFunction());
+```
+
 If you're using RxJava ≥ 1.1.7:
 
 ```java
@@ -67,7 +73,7 @@ $ ./gradlew build
 
 ## License
 
-Copyright 2016-2017 brunomcustodio
+Copyright 2016-2018 brunomcustodio
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
